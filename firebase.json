@@ -1,0 +1,28 @@
+{
+  "functions": [
+    {
+      "source": "functions",
+      "port": "4000",
+      "codebase": "default",
+      "region":"us-central1",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
+    }
+  ],
+  "hosting": {
+    "site": "week17-resyanac",
+    "public": "fronted/dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

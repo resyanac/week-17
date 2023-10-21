@@ -1,9 +1,6 @@
 import express from 'express'
-import cors from 'cors'
-import clientAccess from '../middlewares/cors'
 import { getAllTax, getOneTax, createTax, updateTax, deleteTax, updateAllTax } from '../controllers/tax.controller'
 // import authenticationMiddleware from '../middlewares/authentication-middleware'
-import  checkRole  from '../middlewares/checkRole'
 
 const taskRoutes = express.Router()
 

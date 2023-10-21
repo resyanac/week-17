@@ -1,7 +1,7 @@
 import cors, { CorsOptions } from "cors";
 import { Application } from "express";
 const origin = [
-    "http://localhost:5173"
+    "https://week17-resyanac.web.app"
     // "http://localhost:5173/*"
 ]
 // const partnerOrigin = [

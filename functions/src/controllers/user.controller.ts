@@ -1,12 +1,8 @@
-// controllers/authController.ts
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken'
-import User, {IUser}  from '../config/user.schema';
 import {JWT_SIGN} from '../config/jwt';
 import userSchema from '../config/user.schema';
-import Permission from '../model/permission';
-import { Schema } from 'mongoose';
 
 
 
@@ -14,7 +10,7 @@ const register = async (req: Request, res: Response): Promise<void> => {
     try {
         const { username, email, password, role } = req.body;
 
-        // Check if the user with the given username or email already exists
+        
         const existingUser = await userSchema.findOne({ $or: [{ username }, { email }] });
         if (existingUser) {
             res.status(400).json({ message: 'Username or email already exists.' });

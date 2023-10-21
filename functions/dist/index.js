@@ -10,7 +10,7 @@ const db_connection_1 = require("./config/db.connection");
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
 app.use(express_1.default.json());
 // app.use(cors({
 //     origin: "http://localhost:5173",
@@ -33,6 +33,15 @@ db_connection_1.db.on('error', console.error.bind(console, 'connection error: ')
 db_connection_1.db.once('open', function () {
     console.log('Connected to database');
 });
-app.listen(port, () => {
-    console.log(`server listening at http://localhost:${port}`);
-});
+
+
+// app.listen(port, () => {
+//     console.log(`server listening at http://localhost:${port}`);
+// });
+
+app.get('/my-api', (req, res) => {
+  res.status(200).send('This is the /my-api endpoint.');
+})
+
+exports.week17_resyanac = functions.https.onRequest(app); 
+
